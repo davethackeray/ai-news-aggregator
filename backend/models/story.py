@@ -1,23 +1,23 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql import func
+from datetime import datetime
 from .database import Base
 
 class Story(Base):
     __tablename__ = "stories"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, nullable=False)
-    description = Column(String)
-    url = Column(String, nullable=False)
-    source = Column(String, nullable=False)
-    interesting_score = Column(Float, nullable=False)
-    published_at = Column(DateTime, nullable=False)
-    created_at = Column(DateTime, server_default=func.now())
+    title = Column(String, index=True)
+    description = Column(String, index=True)
+    url = Column(String, index=True)
+    source = Column(String, index=True)
+    interesting_score = Column(Float, index=True)
+    published_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.utcnow)
     used_in_email = Column(Boolean, default=False)
+    content = Column(String)  # Added content attribute
 
-    # Relationship with metrics
-    metrics = relationship("StoryMetrics", back_populates="story", uselist=False)
+    metrics = relationship("StoryMetrics", back_populates="story")
 
 class StoryMetrics(Base):
     __tablename__ = "story_metrics"
@@ -26,9 +26,8 @@ class StoryMetrics(Base):
     story_id = Column(Integer, ForeignKey("stories.id"))
     email_opens = Column(Integer, default=0)
     link_clicks = Column(Integer, default=0)
-    time_spent = Column(Float)
-    feedback_score = Column(Float)
-    updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
+    time_spent = Column(Float, default=0.0)
+    feedback_score = Column(Float, default=0.0)
+    updated_at = Column(DateTime, default=datetime.utcnow)
 
-    # Relationship with story
     story = relationship("Story", back_populates="metrics")

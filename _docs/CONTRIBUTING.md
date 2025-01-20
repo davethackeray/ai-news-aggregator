@@ -244,6 +244,18 @@ async def get_news(
 - Database maintenance
 - Log analysis
 
+### 11. Codebase Overview
+- Backend:
+  - `main.py`: Entry point for the FastAPI backend.
+  - `api/`: Contains API route handlers.
+  - `models/`: Database models.
+  - `services/`: Business logic and services.
+  - `tests/`: Test files.
+- Frontend:
+  - `src/App.js`: Main React component.
+  - `src/components/`: Reusable UI components.
+  - `public/index.html`: HTML template.
+
 ## Getting Help
 
 ### Resources

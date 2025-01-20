@@ -5,6 +5,7 @@ Instructions for New Developers:
    - README.md for project overview and basic setup
    - CONTRIBUTING.md for development standards
    - ROADMAP.md for current status and next tasks
+
 2. Environment Setup (Day 1)
     Backend:
     ```bash
@@ -123,5 +124,17 @@ Instructions for New Developers:
    - Review similar implementations in codebase
    - Create detailed issues for blockers
    - Request reviews early for complex changes
+
+9. Codebase Overview
+   - Backend:
+     - `main.py`: Entry point for the FastAPI backend.
+     - `api/`: Contains API route handlers.
+     - `models/`: Database models.
+     - `services/`: Business logic and services.
+     - `tests/`: Test files.
+   - Frontend:
+     - `src/App.js`: Main React component.
+     - `src/components/`: Reusable UI components.
+     - `public/index.html`: HTML template.
 
 Remember: Our mission is to help business leaders make informed decisions about AI integration while keeping the system cost-effective and maintainable.

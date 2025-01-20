@@ -1,5 +1,11 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
+import sys
+import os
+
+# Add the backend directory to the sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from models.story import Story, StoryMetrics
 from typing import List, Optional
 
@@ -95,4 +101,37 @@ class StoryService:
         engagement_score = get_historical_engagement(story.source)
         freshness_score = calculate_freshness_score(story.published_at)
         source_credibility_score = get_source_credibility(story.source)
-        return weighted_average([content_score, engagement_score, freshness_score, source_credibility_score])
+        podcast_engagement_score = get_podcast_engagement(story.id)  # New factor
+        return weighted_average([content_score, engagement_score, freshness_score, source_credibility_score, podcast_engagement_score])
+
+def get_podcast_engagement(story_id: int) -> float:
+    """Fetch podcast engagement data for a story."""
+    # Placeholder logic for fetching podcast engagement data
+    # This should be replaced with actual logic to fetch data from the podcast analytics system
+    return 0.8  # Example score
+
+def weighted_average(scores: List[float]) -> float:
+    """Calculate the weighted average of the given scores."""
+    # Placeholder logic for weighted average calculation
+    # This should be replaced with actual logic for weighted average
+    return sum(scores) / len(scores)
+
+def analyze_content_relevance(content: str) -> float:
+    """Analyze the content relevance of a story."""
+    # Placeholder logic for content relevance analysis
+    return 0.7
+
+def get_historical_engagement(source: str) -> float:
+    """Get historical engagement for a source."""
+    # Placeholder logic for historical engagement
+    return 0.6
+
+def calculate_freshness_score(published_at: datetime) -> float:
+    """Calculate the freshness score of a story."""
+    # Placeholder logic for freshness score calculation
+    return 0.9
+
+def get_source_credibility(source: str) -> float:
+    """Get the credibility score of a source."""
+    # Placeholder logic for source credibility
+    return 0.85

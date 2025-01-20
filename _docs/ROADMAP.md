@@ -42,7 +42,7 @@ To provide business leaders with highly relevant, actionable AI news and insight
 
 ### Next Up (Prioritized)
 1. Immediate Tasks (Next 2 Weeks)
-    - [ ] Implement story scoring algorithm v1 (consider podcast listener data)
+    - [x] Implement story scoring algorithm v1 (consider podcast listener data)
     - [ ] Add story categorization
     - [ ] Create analytics dashboard (prioritize podcast-related analytics)
     - [ ] Set up email service (future phase)
