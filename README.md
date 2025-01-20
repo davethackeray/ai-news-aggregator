@@ -1,19 +1,67 @@
 # AI News Aggregator
 
-A web application that aggregates AI-related news using NewsAPI, built with FastAPI and React.
+A smart news aggregation system that helps business leaders stay informed about practical AI implementations through curated news and podcast insights.
 
-## Features
+## Overview
 
-- Fetches and displays latest AI and machine learning news
-- Calculates interesting scores for news articles
-- Clean and responsive UI using Chakra UI
-- Real-time updates using FastAPI backend
+This system aggregates AI-related news and uses engagement metrics from an associated podcast to determine story relevance. It features a daily email digest of the most interesting stories and provides insights for podcast content strategy.
 
-## Prerequisites
+### Key Features
+
+- 🔍 Smart news aggregation with ML-based interesting score
+- 📊 Podcast engagement analytics integration
+- 📧 Daily email digest of top stories
+- 📱 Responsive web interface
+- 📈 Performance analytics dashboard
+
+## Quick Start
+
+### Prerequisites
 
 - Python 3.8+
 - Node.js 14+
 - NewsAPI key (get one at https://newsapi.org)
+
+### Backend Setup
+
+```bash
+cd backend
+python -m venv venv
+
+# For fish shell:
+. venv/bin/activate.fish
+# For bash/zsh:
+# source venv/bin/activate
+
+# Install dependencies
+pip install --upgrade pip
+pip install fastapi
+pip install "uvicorn[standard]"
+pip install sqlalchemy
+pip install pydantic
+pip install python-dotenv
+pip install newsapi-python
+pip install requests
+
+# Configure environment
+cp .env.example .env
+# Edit .env and add your NewsAPI key
+
+# Start the server
+python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
 
 ## Project Structure
 
@@ -30,75 +78,56 @@ A web application that aggregates AI-related news using NewsAPI, built with Fast
     └── public/      
 ```
 
-## Setup
+## Documentation
 
-### Backend
+- [Development Roadmap](ROADMAP.md) - Project phases and technical details
+- [Contributing Guidelines](CONTRIBUTING.md) - Development rules and best practices
+- [License](LICENSE) - MIT License
 
-1. Create and activate virtual environment:
-```bash
-cd backend
-python -m venv venv
-# For fish shell:
-. venv/bin/activate.fish
-# For bash/zsh:
-# source venv/bin/activate
-```
+## Key Development Principles
 
-2. Install dependencies:
-```bash
-pip install --upgrade pip
-pip install fastapi
-pip install "uvicorn[standard]"
-pip install sqlalchemy
-pip install pydantic
-pip install python-dotenv
-pip install newsapi-python
-pip install requests
-```
+1. **Cost Efficiency**: Optimize for minimal infrastructure costs
+2. **Data-Driven**: Use metrics to guide development
+3. **User-Centric**: Focus on business leader needs
+4. **Quality First**: Maintain high code standards
+5. **Continuous Learning**: Leverage feedback loops
 
-3. Set up environment variables:
-```bash
-cp .env.example .env
-# Edit .env and add your NewsAPI key
-```
+## Development Status
 
-4. Start the backend server:
-```bash
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
-```
+Current Version: v0.1
+- ✅ Basic news aggregation
+- ✅ FastAPI backend
+- ✅ React frontend
+- ✅ Initial interesting score implementation
+- 🔄 Story database implementation
+- 📅 Email integration (planned)
+- 📅 Podcast analytics (planned)
 
-### Frontend
+See [ROADMAP.md](ROADMAP.md) for detailed development plans and upcoming features.
 
-1. Install dependencies:
-```bash
-cd frontend
-npm install
-```
+## Getting Started with Development
 
-2. Start the development server:
-```bash
-npm start
-```
+1. Review [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines
+2. Check existing issues for tasks
+3. Fork the repository
+4. Create a feature branch
+5. Submit a pull request
 
-The application will be available at:
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
+## Monitoring and Metrics
 
-## Environment Variables
+Key metrics we track:
+- Story relevance accuracy
+- Email engagement rates
+- API performance
+- Resource utilization
+- Podcast segment performance
 
-Backend (.env):
-```
-NEWS_API_KEY=your_newsapi_key_here
-```
+## Support and Questions
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+- Create an issue for bugs or feature requests
+- Use appropriate issue templates
+- Provide relevant context and logs
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
