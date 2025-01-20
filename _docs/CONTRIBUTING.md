@@ -126,6 +126,10 @@ const Card = (props) => {
 
 ### 5. Git Workflow
 
+#### Podcast Analytics Development
+ - Coordinate with analytics team to validate new metrics
+ - Ensure new tests cover podcast-related data ingestion and usage
+
 #### Branch Naming
 ```
 feature/add-email-integration

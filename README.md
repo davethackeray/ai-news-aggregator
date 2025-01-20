@@ -6,6 +6,8 @@ A smart news aggregation system that helps business leaders stay informed about 
 
 This system aggregates AI-related news and uses engagement metrics from an associated podcast to determine story relevance. It features a daily email digest of the most interesting stories and provides insights for podcast content strategy.
 
+Planned integration of podcast listener data will further improve story scoring and suggestion logic.
+
 ### Key Features
 
 - 🔍 Smart news aggregation with ML-based interesting score
@@ -93,14 +95,38 @@ The application will be available at:
 5. **Continuous Learning**: Leverage feedback loops
 
 ## Development Status
-
-Current Version: v0.1
+Current Version: v0.1.1
 - ✅ Basic news aggregation
 - ✅ FastAPI backend
 - ✅ React frontend
 - ✅ Initial interesting score implementation
-- 🔄 Story database implementation
-- 📅 Email integration (planned)
+- ✅ Story database implementation
+  - PostgreSQL models and migrations
+  - Story service layer
+  - Comprehensive test coverage
+- ✅ Email integration
+- 🔄 Podcast analytics (in progress)
+
+## Testing
+
+The project maintains high test coverage with:
+
+### Backend Tests
+- Unit tests for models and services
+- Integration tests for API endpoints
+- Database interaction tests
+
+Run the tests:
+```bash
+cd backend
+pytest  # Run all tests
+pytest --cov=.  # Run with coverage report
+```
+
+### Test Categories
+- `tests/test_models.py`: Database model tests
+- `tests/test_story_service.py`: Service layer tests
+- `tests/test_api.py`: API endpoint tests
 - 📅 Podcast analytics (planned)
 
 See [ROADMAP.md](ROADMAP.md) for detailed development plans and upcoming features.
